@@ -1,0 +1,3 @@
+- [x] Create src/Admin/Discounts.tsx with a simple component containing <h1>Discounts</h1>
+- [x] Update src/App.tsx to import Discounts and add the route for /admin/discounts
+- [x] Update src/Admin/DashboardLayout.tsx to add SidebarItem for Discounts under Dashboards section
