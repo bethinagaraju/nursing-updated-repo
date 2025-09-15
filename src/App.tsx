@@ -54,51 +54,55 @@ import Adminlogin from "./Admin/Adminlogin";
 const queryClient = new QueryClient();
 
 
+import { LoginContextProvider } from "./context/LoginContext";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <DefaultToaster />
       <SonnerToaster />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/workflow" element={<Adminlogin />} />
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/discount-registration" element={<DiscountRegistrationPage />} />
-          <Route path="/abstract-submission" element={<AbstractSubmissionPage />} />
-          <Route path="/sessions" element={<SessionPage />} />
-          <Route path="/agenda" element={<Agenda />} />
-          <Route path="/speakers" element={<SpeakersPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin" element={<DashboardLayout />}>
-            <Route index element={<DashboardHomeContent />} />
-            <Route path="banking" element={<BankingDashboard />} />
+      <LoginContextProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/workflow" element={<Adminlogin />} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/discount-registration" element={<DiscountRegistrationPage />} />
+            <Route path="/abstract-submission" element={<AbstractSubmissionPage />} />
+            <Route path="/sessions" element={<SessionPage />} />
+            <Route path="/agenda" element={<Agenda />} />
+            <Route path="/speakers" element={<SpeakersPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/admin" element={<DashboardLayout />}>
+              <Route index element={<DashboardHomeContent />} />
+              <Route path="banking" element={<BankingDashboard />} />
 
-            <Route path="abstract-submissions" element={<AbstractSubmissions />} />
-            <Route path="bookings" element={<Bookings />} />
-            <Route path="payments" element={<Payments />} />
-            <Route path="registration-types" element={<RegistrationTypes />} />
-            <Route path="discounts" element={<Discounts />} />
-            <Route path="accommodation-combinations" element={<AccommodationCombinations />} />
-            <Route path="important-dates" element={<ImportantDates />} />
-            <Route path="venue-details" element={<VenueDetails />} />
-            {/* Add more dashboard pages here, e.g., <Route path="page1" element={<Page1 />} /> */}
-          </Route>
-          <Route path="/payment-success" element={
-            <StripeProtectedRoute>
-              <PaymentSuccess />
-            </StripeProtectedRoute>
-          } />
-          <Route path="/payment-failure" element={
-            <StripeProtectedRoute>
-              <PaymentFailure />
-            </StripeProtectedRoute>
-          } />
+              <Route path="abstract-submissions" element={<AbstractSubmissions />} />
+              <Route path="bookings" element={<Bookings />} />
+              <Route path="payments" element={<Payments />} />
+              <Route path="registration-types" element={<RegistrationTypes />} />
+              <Route path="discounts" element={<Discounts />} />
+              <Route path="accommodation-combinations" element={<AccommodationCombinations />} />
+              <Route path="important-dates" element={<ImportantDates />} />
+              <Route path="venue-details" element={<VenueDetails />} />
+              {/* Add more dashboard pages here, e.g., <Route path="page1" element={<Page1 />} /> */}
+            </Route>
+            <Route path="/payment-success" element={
+              <StripeProtectedRoute>
+                <PaymentSuccess />
+              </StripeProtectedRoute>
+            } />
+            <Route path="/payment-failure" element={
+              <StripeProtectedRoute>
+                <PaymentFailure />
+              </StripeProtectedRoute>
+            } />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </LoginContextProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

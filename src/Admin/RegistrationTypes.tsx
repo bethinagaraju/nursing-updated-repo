@@ -180,6 +180,8 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 // Interface for the data structure of a presentation type
 interface PresentationType {
@@ -203,6 +205,19 @@ const RegistrationTypes: React.FC = () => {
   // State for inline editing
   const [editId, setEditId] = useState<number | null>(null);
   const [editPrice, setEditPrice] = useState<string>('');
+
+    const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
 
   // --- CONFIGURATION ---
   // Hardcoded BASE_URL for the API endpoint

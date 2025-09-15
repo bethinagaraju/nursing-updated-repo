@@ -281,6 +281,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useLoginContext } from "../context/LoginContext";
 
 function Adminlogin() {
   const [code, setCode] = useState(""); // Admin will enter only code
@@ -290,6 +291,7 @@ function Adminlogin() {
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
+  const { setIsLogin } = useLoginContext();
   const API_BASE = "http://localhost:8906/nursing/auth";
   const ADMIN_CODE = "NURSINGMEET2026";
   const ADMIN_EMAIL = "secretary@nursingmeet2026.com";
@@ -328,6 +330,7 @@ function Adminlogin() {
 
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
+        setIsLogin(true);
         setMessage("Login successful!");
         navigate("/admin");
       } else {
@@ -366,7 +369,7 @@ function Adminlogin() {
         {step === 1 && (
           <>
             <input
-              type="password"
+              type="text"
               placeholder="Enter Admin Code"
               value={code}
               onChange={(e) => setCode(e.target.value)}

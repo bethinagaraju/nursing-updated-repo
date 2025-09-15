@@ -16,6 +16,8 @@
 
 
 import React, { useEffect, useState } from "react";
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:8906";
 
@@ -32,9 +34,23 @@ interface AbstractSubmission {
   abstractFilePath: string;
 }
 
+
+
 const AbstractSubmissions = () => {
   const [submissions, setSubmissions] = useState<AbstractSubmission[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
 
   useEffect(() => {
     const fetchSubmissions = async () => {

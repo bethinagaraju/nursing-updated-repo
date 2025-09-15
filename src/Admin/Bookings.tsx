@@ -1058,6 +1058,8 @@
 
 import { useEffect, useState } from 'react';
 import { FaSearch, FaBed, FaUserFriends, FaCheckCircle, FaTimesCircle, FaMoneyBillWave, FaClipboard, FaSpinner, FaEnvelope, FaPhoneAlt, FaUniversity, FaGlobe, FaEuroSign, FaIdBadge } from 'react-icons/fa';
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = 'http://localhost:8906';
 const formatCurrency = (amount, currency = 'EUR') => {
@@ -1077,6 +1079,19 @@ const Bookings = () => {
   const [universalSearch, setUniversalSearch] = useState('');
   const [bookingPaymentStatuses, setBookingPaymentStatuses] = useState({});
   const [showCopyMessage, setShowCopyMessage] = useState(false);
+
+    const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
 
   useEffect(() => {
     const apiCall = async (endpoint, options = {}) => {

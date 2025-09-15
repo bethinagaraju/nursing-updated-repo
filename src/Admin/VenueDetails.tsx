@@ -14,6 +14,8 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const VenueDetails: React.FC = () => {
   const [venue, setVenue] = useState({
@@ -23,6 +25,19 @@ const VenueDetails: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const API_URL = "http://localhost:8906/api/conference-venue";
+
+        const { isLogin } = useLoginContext();
+      const navigate = useNavigate();
+    
+        useEffect(() => {
+          if (!isLogin) {
+            navigate('/workflow');
+          }
+        }, [isLogin, navigate]);
+        
+         if (!isLogin) {
+          return null;
+        }
 
   // Fetch venue details
   useEffect(() => {

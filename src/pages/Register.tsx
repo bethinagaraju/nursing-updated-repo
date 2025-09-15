@@ -323,6 +323,7 @@ const Register: React.FC<{
     const captchaRef = useRef<HTMLInputElement>(null);
     const errorSectionRef = useRef<HTMLDivElement>(null);
 
+
     // Map error keys to refs
     const fieldRefs: { [key: string]: React.RefObject<any> } = {
         name: nameRef,
@@ -654,6 +655,30 @@ const Register: React.FC<{
         return () => window.removeEventListener('keydown', handlePasteShortcut);
     }, [setRegisterFormData]);
 
+
+    
+    const [venue, setVenue] = useState<string>('');
+    const [accommodation, setAccommodation] = useState<string>('');
+
+
+    const fetchVenue = async () => {
+        try {
+            const res = await fetch(`http://localhost:8906/api/conference-venue`);
+            const data = await res.json();
+            setVenue(data.conferenceVenue);
+            setAccommodation(data.accommodationVenue);
+            console.log('Fetched venue:', data.conferenceVenue);
+            console
+        } catch (err) {
+            console.error('Error fetching venue:', err);
+        }
+    };
+
+    useEffect(() => {
+        fetchVenue();
+        
+    }, []);
+
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="info-section">
@@ -663,7 +688,7 @@ const Register: React.FC<{
                 </div>
                 <div className="info-item">
                     <label>Location</label>
-                    <p>Nursing Venue: Crowne Plaza Rome - St. Peter’s, Rome, Italy</p>
+                    <p>{venue}</p>
                 </div>
                 <div className="info-item">
                     <label>Registration Deadline</label>
@@ -971,6 +996,7 @@ const Register: React.FC<{
                         />
                         <span>Registration Only</span>
                     </label>
+
                     <label className="radio-label">
                         <input
                             type="radio"
@@ -982,6 +1008,7 @@ const Register: React.FC<{
                         />
                         <span>Registration + Accommodation</span>
                     </label>
+                    
                 </div>
                 {errors.registrationType && <p className="error-text">{errors.registrationType}</p>}
             </div>
@@ -1124,7 +1151,7 @@ const Register: React.FC<{
                     <div className="mt-4 p-3 bg-white border border-blue-200 rounded text-sm text-gray-700">
                         <p className="font-medium text-gray-900 mb-1">Accommodation Details:</p>
                         <p>• Conference Date: May 15-16, 2026</p>
-                        <p>• Location: Crowne Plaza Rome - St. Peter’s, Rome, Italy</p>
+                        <p>• Location: {venue.accommodationVenue}</p>
                         <p>• Registration Deadline: January 25, 2026</p>
                         <p>• Selected: {registerFormData.guests} guest{registerFormData.guests > 1 ? 's' : ''} for {registerFormData.nights} night{registerFormData.nights > 1 ? 's' : ''}</p>
                     </div>

@@ -1458,6 +1458,8 @@ import {
   FaClipboard,
   FaCopy,
 } from "react-icons/fa";
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const AdminPaymentService = {
   getPaymentStats: async () => {
@@ -1507,6 +1509,19 @@ const Payments: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedPayment, setSelectedPayment] = useState<any | null>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
+
+    const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
 
   const fetchStats = async () => {
     try {

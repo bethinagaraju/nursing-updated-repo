@@ -262,6 +262,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaBed, FaUserFriends, FaEuroSign, FaEdit, FaSave, FaTimes, FaTrashAlt } from 'react-icons/fa';
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
+
 
 const BASE_URL = 'http://localhost:8906';
 
@@ -284,6 +287,21 @@ const AccommodationCombinations: React.FC = () => {
 
   const [deleteId, setDeleteId] = useState<number | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
+
+      const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
+
+
 
   useEffect(() => {
     fetchAccommodations();

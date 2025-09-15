@@ -13,6 +13,9 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
+
 
 interface ConferenceDates {
   id: number;
@@ -29,6 +32,20 @@ const ImportantDates: React.FC = () => {
   const [updating, setUpdating] = useState<string | null>(null);
 
   const API_URL = "http://localhost:8906/api/conference-dates";
+
+
+      const { isLogin } = useLoginContext();
+    const navigate = useNavigate();
+  
+      useEffect(() => {
+        if (!isLogin) {
+          navigate('/workflow');
+        }
+      }, [isLogin, navigate]);
+      
+       if (!isLogin) {
+        return null;
+      }
 
   // Fetch dates on mount
   useEffect(() => {
@@ -78,6 +95,8 @@ const ImportantDates: React.FC = () => {
           { key: "standardDeadline", label: "Standard Deadline" },
           { key: "conference", label: "Conference Date" },
           { key: "registrationDeadline", label: "Registration Deadline" },
+          { key: "conferenceEndDate", label: "Conference End Date" },
+
         ] as { key: keyof ConferenceDates; label: string }[]
       ).map(({ key, label }) => (
         <div key={key} className="mb-4">

@@ -411,6 +411,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaUserEdit, FaTrash, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useLoginContext } from '../context/LoginContext';
 
 // const BASE_URL = 'https://polytest.marketingzynlogic.com';
 const BASE_URL = 'http://localhost:8906';
@@ -426,6 +428,9 @@ type Speaker = {
 };
 
 const BankingDashboard = () => {
+  const navigate = useNavigate();
+  const { isLogin } = useLoginContext();
+
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -434,8 +439,20 @@ const BankingDashboard = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
+    if (!isLogin) {
+      navigate('/workflow');
+    }
+  }, [isLogin, navigate]);
+  
+   if (!isLogin) {
+    return null;
+  }
+
+  useEffect(() => {
     fetchSpeakers();
   }, []);
+
+ 
 
   const fetchSpeakers = async () => {
     setLoading(true);

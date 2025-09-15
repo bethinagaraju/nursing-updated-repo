@@ -107,6 +107,8 @@
 
 
 import React, { useEffect, useState } from "react";
+import { useLoginContext } from "@/context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 interface Discount {
   id: number;
@@ -132,6 +134,19 @@ const Discounts: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<Discount | null>(null);
+
+    const { isLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!isLogin) {
+        navigate('/workflow');
+      }
+    }, [isLogin, navigate]);
+    
+     if (!isLogin) {
+      return null;
+    }
 
   useEffect(() => {
     const fetchDiscounts = async () => {
