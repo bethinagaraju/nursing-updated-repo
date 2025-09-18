@@ -3,7 +3,7 @@
 // // import axios from 'axios';
 
 // // // const BASE_URL = 'https://polytest.marketingzynlogic.com';
-// // const BASE_URL = 'http://localhost:8906';
+// // const BASE_URL = 'https://nursing.marketingzynlogic.com';
 // // const API_BASE = `${BASE_URL}/api/speakers`;
 
 // // type Speaker = {
@@ -175,7 +175,7 @@
 // import axios from 'axios';
 
 // // const BASE_URL = 'https://polytest.marketingzynlogic.com';
-// const BASE_URL = 'http://localhost:8906';
+// const BASE_URL = 'https://nursing.marketingzynlogic.com';
 // const API_BASE = `${BASE_URL}/api/speakers`;
 
 // type Speaker = {
@@ -415,7 +415,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginContext';
 
 // const BASE_URL = 'https://polytest.marketingzynlogic.com';
-const BASE_URL = 'http://localhost:8906';
+const BASE_URL = 'https://nursing.marketingzynlogic.com';
 const API_BASE = `${BASE_URL}/api/speakers`;
 
 type Speaker = {

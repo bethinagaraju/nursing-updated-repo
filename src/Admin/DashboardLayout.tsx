@@ -65,6 +65,7 @@ const DashboardLayout = () => {
           <SidebarItem icon={List} label="Accommodation Combinations" isActive={location.pathname === '/admin/accommodation-combinations'} onClick={() => navigate('accommodation-combinations')} />
           <SidebarItem icon={List} label="Important Dates" isActive={location.pathname === '/admin/important-dates'} onClick={() => navigate('important-dates')} />
           <SidebarItem icon={List} label="Venue Details" isActive={location.pathname === '/admin/venue-details'} onClick={() => navigate('venue-details')} />
+          <SidebarItem icon={List} label="Agenda Management" isActive={location.pathname === '/admin/agenda-management'} onClick={() => navigate('agenda-management')} />
 
 
         </nav>

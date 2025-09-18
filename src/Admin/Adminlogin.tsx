@@ -10,7 +10,7 @@
 // //   const [message, setMessage] = useState("");
 
 // //   const navigate = useNavigate();
-// //   const API_BASE = "http://localhost:8906/nursing/auth";
+// //   const API_BASE = "https://nursing.marketingzynlogic.com/nursing/auth";
 
 // //   // Send OTP
 // //   const handleSendOtp = async () => {
@@ -115,7 +115,7 @@
 //   const [message, setMessage] = useState("");
 
 //   const navigate = useNavigate();
-//   const API_BASE = "http://localhost:8906/nursing/auth";
+//   const API_BASE = "https://nursing.marketingzynlogic.com/nursing/auth";
 
 //   // Send OTP
 //   const handleSendOtp = async (auto = false) => {
@@ -292,7 +292,7 @@ function Adminlogin() {
 
   const navigate = useNavigate();
   const { setIsLogin } = useLoginContext();
-  const API_BASE = "http://localhost:8906/nursing/auth";
+  const API_BASE = "https://nursing.marketingzynlogic.com/nursing/auth";
   const ADMIN_CODE = "NURSINGMEET2026";
   const ADMIN_EMAIL = "secretary@nursingmeet2026.com";
 

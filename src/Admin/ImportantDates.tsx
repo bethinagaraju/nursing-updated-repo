@@ -31,7 +31,7 @@ const ImportantDates: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState<string | null>(null);
 
-  const API_URL = "http://localhost:8906/api/conference-dates";
+  const API_URL = "https://nursing.marketingzynlogic.com/api/conference-dates";
 
 
       const { isLogin } = useLoginContext();

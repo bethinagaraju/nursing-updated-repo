@@ -397,16 +397,27 @@ const AbstractSubmission: React.FC<{
         }
     };
 
+
+    const [dates, setDates] = useState(null);
+
+      useEffect(() => {
+    // Fetch conference dates
+    fetch("https://nursing.marketingzynlogic.com/api/conference-dates")
+      .then((res) => res.json())
+      .then((data) => setDates(data))
+      .catch((err) => console.error("Error fetching dates:", err));
+  }, []);
+
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="info-section">
                 <div className="info-item">
                     <label>Abstract Deadline</label>
-                    <p>January 25, 2026</p>
+                    <p>{dates?.abstractDeadline}</p>
                 </div>
                 <div className="info-item">
                     <label>Conference</label>
-                    <p>May 15-16, 2026</p>
+                    <p>{dates?.conference} to {dates?.conferenceEndDate}</p>
                 </div>
                 <div className="info-item">
                     <label>File Format</label>

@@ -12,7 +12,7 @@
 // // import { FaSearch, FaBed, FaUserFriends, FaCheckCircle, FaTimesCircle, FaMoneyBillWave, FaClipboard, FaSpinner } from 'react-icons/fa';
 
 // // // New Base URL for the nursing backend
-// // const API_BASE_URL = 'http://localhost:8906';
+// // const API_BASE_URL = 'https://nursing.marketingzynlogic.com';
 
 // // // Utility function for consistent currency formatting
 // // const formatCurrency = (amount: number, currency: string = 'EUR') => {
@@ -803,7 +803,7 @@
 // import { useEffect, useState } from 'react';
 // import { FaSearch, FaBed, FaUserFriends, FaCheckCircle, FaTimesCircle, FaMoneyBillWave, FaClipboard, FaSpinner } from 'react-icons/fa';
 
-// const API_BASE_URL = 'http://localhost:8906';
+// const API_BASE_URL = 'https://nursing.marketingzynlogic.com';
 // const formatCurrency = (amount, currency = 'EUR') => {
 //   if (amount === null || amount === undefined) return '€0.00';
 //   return new Intl.NumberFormat('en-EU', { style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
@@ -1061,7 +1061,7 @@ import { FaSearch, FaBed, FaUserFriends, FaCheckCircle, FaTimesCircle, FaMoneyBi
 import { useLoginContext } from "@/context/LoginContext";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = 'http://localhost:8906';
+const API_BASE_URL = 'https://nursing.marketingzynlogic.com';
 const formatCurrency = (amount, currency = 'EUR') => {
   if (amount === null || amount === undefined) return '€0.00';
   return new Intl.NumberFormat('en-EU', { style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);

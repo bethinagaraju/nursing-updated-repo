@@ -19,7 +19,7 @@ import React, { useEffect, useState } from "react";
 import { useLoginContext } from "@/context/LoginContext";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:8906";
+const BASE_URL = "https://nursing.marketingzynlogic.com";
 
 interface AbstractSubmission {
   id: number;

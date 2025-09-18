@@ -660,15 +660,25 @@ const Register: React.FC<{
     const [venue, setVenue] = useState<string>('');
     const [accommodation, setAccommodation] = useState<string>('');
 
+    const [dates, setDates] = useState(null);
+
+
 
     const fetchVenue = async () => {
         try {
-            const res = await fetch(`http://localhost:8906/api/conference-venue`);
+            const res = await fetch(`https://nursing.marketingzynlogic.com/api/conference-venue`);
             const data = await res.json();
             setVenue(data.conferenceVenue);
             setAccommodation(data.accommodationVenue);
             console.log('Fetched venue:', data.conferenceVenue);
-            console
+            console.log('Fetched accommodation:', data.accommodationVenue);
+
+            fetch("https://nursing.marketingzynlogic.com/api/conference-dates")
+      .then((res) => res.json())
+      .then((data) => setDates(data))
+      .catch((err) => console.error("Error fetching dates:", err));
+
+            
         } catch (err) {
             console.error('Error fetching venue:', err);
         }
@@ -684,7 +694,7 @@ const Register: React.FC<{
             <div className="info-section">
                 <div className="info-item">
                     <label>Conference Date</label>
-                    <p>May 15-16, 2026</p>
+                    <p>{dates?.conference} to {dates?.conferenceEndDate}</p>
                 </div>
                 <div className="info-item">
                     <label>Location</label>
@@ -692,7 +702,7 @@ const Register: React.FC<{
                 </div>
                 <div className="info-item">
                     <label>Registration Deadline</label>
-                    <p>January 25, 2026</p>
+                    <p>{dates?.registrationDeadline}</p>
                 </div>
             </div>
 
@@ -1150,9 +1160,9 @@ const Register: React.FC<{
 
                     <div className="mt-4 p-3 bg-white border border-blue-200 rounded text-sm text-gray-700">
                         <p className="font-medium text-gray-900 mb-1">Accommodation Details:</p>
-                        <p>• Conference Date: May 15-16, 2026</p>
-                        <p>• Location: {venue.accommodationVenue}</p>
-                        <p>• Registration Deadline: January 25, 2026</p>
+                        <p>• Conference Date: {dates?.conference} - {dates?.conferenceEndDate}</p>
+                        <p>• Location: {accommodation}</p>
+                        <p>• Registration Deadline: {dates?.registrationDeadline}</p>
                         <p>• Selected: {registerFormData.guests} guest{registerFormData.guests > 1 ? 's' : ''} for {registerFormData.nights} night{registerFormData.nights > 1 ? 's' : ''}</p>
                     </div>
                 </div>
@@ -1304,6 +1314,7 @@ const Register: React.FC<{
                     {isProcessingPayment ? 'Processing...' : 'Register & Pay Now'}
                 </button>
             </div>
+            
         </form>
 
     );
@@ -1391,7 +1402,6 @@ const RegistrationPage: React.FC = () => {
                         </div>
                     </div>
                 </section>
-
                 {showModal && (
                     <div className="modal">
                         <div className="modal-content">

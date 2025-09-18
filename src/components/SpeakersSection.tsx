@@ -119,7 +119,7 @@ const SpeakersSection = () => {
   useEffect(() => {
     const fetchSpeakers = async () => {
       try {
-        const response = await fetch("https://polytest.marketingzynlogic.com/api/speakers/nursing");
+        const response = await fetch("https://nursing.marketingzynlogic.com/api/speakers/nursing");
         const data = await response.json();
         setSpeakers(data);
       } catch (error) {

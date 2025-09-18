@@ -24,7 +24,7 @@ const VenueDetails: React.FC = () => {
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const API_URL = "http://localhost:8906/api/conference-venue";
+  const API_URL = "https://nursing.marketingzynlogic.com/api/conference-venue";
 
         const { isLogin } = useLoginContext();
       const navigate = useNavigate();

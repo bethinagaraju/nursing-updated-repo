@@ -16,7 +16,7 @@
 //   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
 //   // Hardcoded BASE_URL for nursing
-//   const BASE_URL = 'http://localhost:8906';
+//   const BASE_URL = 'https://nursing.marketingzynlogic.com';
 
 //   // Get JWT token from localStorage (or your auth context)
 //   const token = localStorage.getItem('adminToken') || localStorage.getItem('jwt');
@@ -221,7 +221,7 @@ const RegistrationTypes: React.FC = () => {
 
   // --- CONFIGURATION ---
   // Hardcoded BASE_URL for the API endpoint
-  const BASE_URL = 'http://localhost:8906';
+  const BASE_URL = 'https://nursing.marketingzynlogic.com';
 
   // --- DATA FETCHING ---
   // Fetch all presentation types when the component mounts

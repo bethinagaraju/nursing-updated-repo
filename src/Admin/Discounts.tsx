@@ -43,7 +43,7 @@
 //     const fetchDiscounts = async () => {
 //       try {
 //         const response = await fetch(
-//           "http://localhost:8906/admin/api/admin/discounts/renewable"
+//           "https://nursing.marketingzynlogic.com/admin/api/admin/discounts/renewable"
 //         );
 //         if (!response.ok) {
 //           throw new Error("Failed to fetch discounts");
@@ -152,7 +152,7 @@ const Discounts: React.FC = () => {
     const fetchDiscounts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8906/admin/api/admin/discounts/nursing"
+          "https://nursing.marketingzynlogic.com/admin/api/admin/discounts/nursing"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch discounts");

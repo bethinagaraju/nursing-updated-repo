@@ -48,6 +48,7 @@ import Discounts from "./Admin/Discounts";
 import AccommodationCombinations from "./Admin/AccommodationCombinations";
 import ImportantDates from "./Admin/ImportantDates";
 import VenueDetails from "./Admin/VenueDetails";
+import AgendaManagement from "./Admin/AgendaManagement";
 import Adminlogin from "./Admin/Adminlogin";
 
 
@@ -86,6 +87,7 @@ const App = () => (
               <Route path="accommodation-combinations" element={<AccommodationCombinations />} />
               <Route path="important-dates" element={<ImportantDates />} />
               <Route path="venue-details" element={<VenueDetails />} />
+              <Route path="agenda-management" element={<AgendaManagement />} />
               {/* Add more dashboard pages here, e.g., <Route path="page1" element={<Page1 />} /> */}
             </Route>
             <Route path="/payment-success" element={

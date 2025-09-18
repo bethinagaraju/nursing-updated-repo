@@ -14,19 +14,19 @@
 // // // const AdminPaymentService = {
 // // //   getPaymentStats: async () => {
 // // //     // Fetch stats for nursing
-// // //     const res = await fetch('http://localhost:8906/api/payments/nursing/statistics');
+// // //     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/nursing/statistics');
 // // //     return res.json();
 // // //   },
 // // //   getAllPayments: async () => {
-// // //     const res = await fetch('http://localhost:8906/api/payments/all/nursing');
+// // //     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/all/nursing');
 // // //     return res.json();
 // // //   },
 // // //   getPaymentsByStatus: async (status: string) => {
-// // //     const res = await fetch(`http://localhost:8906/api/payments/nursing/status/${status}`);
+// // //     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/status/${status}`);
 // // //     return res.json();
 // // //   },
 // // //   searchByEmail: async (email: string) => {
-// // //     const res = await fetch(`http://localhost:8906/api/payments/nursing/customer/${encodeURIComponent(email)}`);
+// // //     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/customer/${encodeURIComponent(email)}`);
 // // //     return res.json();
 // // //   },
 // // // };
@@ -558,19 +558,19 @@
 // // const AdminPaymentService = {
 // //   getPaymentStats: async () => {
 // //     // Fetch stats for nursing
-// //     const res = await fetch('http://localhost:8906/api/payments/nursing/statistics');
+// //     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/nursing/statistics');
 // //     return res.json();
 // //   },
 // //   getAllPayments: async () => {
-// //     const res = await fetch('http://localhost:8906/api/payments/all/nursing');
+// //     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/all/nursing');
 // //     return res.json();
 // //   },
 // //   getPaymentsByStatus: async (status: string) => {
-// //     const res = await fetch(`http://localhost:8906/api/payments/nursing/status/${status}`);
+// //     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/status/${status}`);
 // //     return res.json();
 // //   },
 // //   searchByEmail: async (email: string) => {
-// //     const res = await fetch(`http://localhost:8906/api/payments/nursing/customer/${encodeURIComponent(email)}`);
+// //     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/customer/${encodeURIComponent(email)}`);
 // //     return res.json();
 // //   },
 // // };
@@ -1103,19 +1103,19 @@
 
 // const AdminPaymentService = {
 //   getPaymentStats: async () => {
-//     const res = await fetch('http://localhost:8906/api/payments/nursing/statistics');
+//     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/nursing/statistics');
 //     return res.json();
 //   },
 //   getAllPayments: async () => {
-//     const res = await fetch('http://localhost:8906/api/payments/all/nursing');
+//     const res = await fetch('https://nursing.marketingzynlogic.com/api/payments/all/nursing');
 //     return res.json();
 //   },
 //   getPaymentsByStatus: async (status: string) => {
-//     const res = await fetch(`http://localhost:8906/api/payments/nursing/status/${status}`);
+//     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/status/${status}`);
 //     return res.json();
 //   },
 //   searchByEmail: async (email: string) => {
-//     const res = await fetch(`http://localhost:8906/api/payments/nursing/customer/${encodeURIComponent(email)}`);
+//     const res = await fetch(`https://nursing.marketingzynlogic.com/api/payments/nursing/customer/${encodeURIComponent(email)}`);
 //     return res.json();
 //   },
 // };
@@ -1464,23 +1464,23 @@ import { useNavigate } from "react-router-dom";
 const AdminPaymentService = {
   getPaymentStats: async () => {
     const res = await fetch(
-      "http://localhost:8906/api/payments/nursing/statistics"
+      "https://nursing.marketingzynlogic.com/api/payments/nursing/statistics"
     );
     return res.json();
   },
   getAllPayments: async () => {
-    const res = await fetch("http://localhost:8906/api/payments/all/nursing");
+    const res = await fetch("https://nursing.marketingzynlogic.com/api/payments/all/nursing");
     return res.json();
   },
   getPaymentsByStatus: async (status: string) => {
     const res = await fetch(
-      `http://localhost:8906/api/payments/nursing/status/${status}`
+      `https://nursing.marketingzynlogic.com/api/payments/nursing/status/${status}`
     );
     return res.json();
   },
   searchByEmail: async (email: string) => {
     const res = await fetch(
-      `http://localhost:8906/api/payments/nursing/customer/${encodeURIComponent(
+      `https://nursing.marketingzynlogic.com/api/payments/nursing/customer/${encodeURIComponent(
         email
       )}`
     );

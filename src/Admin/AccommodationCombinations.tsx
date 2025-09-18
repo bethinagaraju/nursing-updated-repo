@@ -18,7 +18,7 @@
 // import { FaBed, FaUserFriends, FaEuroSign, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
 
 // // The base URL for your API
-// const BASE_URL = 'http://localhost:8906';
+// const BASE_URL = 'https://nursing.marketingzynlogic.com';
 
 // // Define the structure of an accommodation option
 // interface AccommodationOption {
@@ -266,7 +266,7 @@ import { useLoginContext } from "@/context/LoginContext";
 import { useNavigate } from "react-router-dom";
 
 
-const BASE_URL = 'http://localhost:8906';
+const BASE_URL = 'https://nursing.marketingzynlogic.com';
 
 interface AccommodationOption {
   id: number;

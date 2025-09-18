@@ -136,13 +136,13 @@ const FooterSection = () => {
 
   useEffect(() => {
     // Fetch conference dates
-    fetch("http://localhost:8906/api/conference-dates")
+    fetch("https://nursing.marketingzynlogic.com/api/conference-dates")
       .then((res) => res.json())
       .then((data) => setDates(data))
       .catch((err) => console.error("Error fetching dates:", err));
 
     // Fetch conference venue
-    fetch("http://localhost:8906/api/conference-venue")
+    fetch("https://nursing.marketingzynlogic.com/api/conference-venue")
       .then((res) => res.json())
       .then((data) => setVenue(data))
       .catch((err) => console.error("Error fetching venue:", err));
